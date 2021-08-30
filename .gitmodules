@@ -1,0 +1,6 @@
+[submodule "src/memfault/memfault-firmware-sdk"]
+	path = src/memfault/memfault-firmware-sdk
+	url = https://github.com/memfault/memfault-firmware-sdk.git
+[submodule "packages/arduino-esp32"]
+	path = packages/arduino-esp32
+	url = git@github.com:espressif/arduino-esp32.git
