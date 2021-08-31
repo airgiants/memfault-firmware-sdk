@@ -8,4 +8,6 @@ set(COMPONENT_SRCS
 
 set(COMPONENT_ADD_INCLUDEDIRS .)
 
+set(COMPONENT_REQUIRES esp_https_ota app_update)
+
 register_component()
