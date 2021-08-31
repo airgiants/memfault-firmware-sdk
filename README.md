@@ -17,5 +17,36 @@ The memfault tree was added with a git submodule:
 The `CMakeLists.txt` and `src/` files were copied over from the memfault example:
 
 ```bash
-❯ cp -r src/memfault/memfault-firmware-sdk/examples/esp32/apps/memfault_demo_app/* ./
+# copy project configuration files
+❯ cp -r src/memfault/memfault-firmware-sdk/examples/esp32/apps/memfault_demo_app/{CMakeLists.txt,sdkconfig.defaults} ./
+# copy application
+❯ cp -r src/memfault/memfault-firmware-sdk/examples/esp32/apps/memfault_demo_app/main/* src/
 ```
+
+## Testing
+
+To test:
+
+1. install platformio core [from these instructions](https://docs.platformio.org/en/latest//core/installation.html#super-quick-mac-linux):
+
+   ```bash
+   python3 -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
+   ```
+
+2. make sure the `pio` binary is on path. for example you might need to do something like this:
+
+   ```bash
+   ln -s ~/.platformio/penv/bin/pio ~/.local/bin/
+   ```
+
+3. run the build command:
+
+   ```bash
+   pio run
+   ```
+
+4. to test on the board (esp-wrover-kit), run these commands to flash the board and open a serial terminal:
+
+   ```bash
+   pio run --target upload --target monitor
+   ```
