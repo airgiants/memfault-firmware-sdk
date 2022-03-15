@@ -21,6 +21,7 @@
 #include "esp_vfs_fat.h"
 #include "nvs.h"
 #include "nvs_flash.h"
+#include "Arduino.h"
 
 #include "memfault/core/compiler.h"
 #include "memfault/core/debug_log.h"
@@ -188,6 +189,9 @@ void app_main() {
     prompt = "esp32> ";
 #endif //CONFIG_LOG_COLORS
   }
+
+    initArduino();
+
 
   /* Main loop */
   while(true) {
