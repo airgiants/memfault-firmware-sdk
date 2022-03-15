@@ -36,6 +36,7 @@
 
 
 #include "pressure.h"
+#include "imu/imu.h"
     
 #include <WiFi.h>
 #include <WiFiMulti.h>
@@ -108,6 +109,7 @@ Pressure psensor;
     psensor.update();
   }
 
+Imu imu;
 
 WiFiMulti wifiMulti;
 
@@ -157,8 +159,17 @@ extern "C" void app_main() {
     /* SETUP */
     Serial.begin(115200);
     Wire.begin();
-    Wire.setClock(20000);
+    Wire.setClock(10000);
     psensor.begin();
+   // imu.begin();
+
+    if(!imu.begin())
+  {
+    /* There was a problem detecting the BNO055 ... check your connections */
+    Serial.print("Ooops, no BNO055 detected ... Check your wiring or I2C ADDR!");
+   //
+    while(1);
+  }
     //imu.begin();
 
       wifiMulti.addAP(ssid0, pass0);
@@ -203,7 +214,7 @@ if (millis () - target_time >= HEARTBEAT_PERIOD)
     Serial.print("  Temp: ");
     Serial.print(psensor.get_temperature());
     Serial.print("  Angle:");
-    //Serial.println(imu.get_angle());
+    Serial.println(imu.get_angle());
  if (wifiMulti.run() != WL_CONNECTED) {
     Serial.println("WiFi not connected!");
   }
