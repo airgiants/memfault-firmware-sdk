@@ -5,6 +5,7 @@ set(COMPONENT_SRCS
    console_example_main.cpp
    memfault_platform_device_info.c
    pressure.cpp
+   imu/imu.cpp
 )
 
 set(COMPONENT_ADD_INCLUDEDIRS .)
