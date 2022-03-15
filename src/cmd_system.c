@@ -36,6 +36,9 @@ static void register_make();
 static void register_tasks();
 #endif
 
+#ifdef __cplusplus
+extern "C"{
+#endif 
 void register_system()
 {
   register_free();
@@ -47,6 +50,9 @@ void register_system()
   register_tasks();
 #endif
 }
+#ifdef __cplusplus
+}
+#endif
 
 /** 'restart' command restarts the program */
 
