@@ -25,7 +25,7 @@
 #endif
 
 #ifndef MEMFAULT_ESP32_HW_REVISION
-#  define MEMFAULT_ESP32_HW_REVISION "esp32-proto"
+#  define MEMFAULT_ESP32_HW_REVISION "Unfurl-Node"
 #endif
 
 static char s_device_serial[32];
