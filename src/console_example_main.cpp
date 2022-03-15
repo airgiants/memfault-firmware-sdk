@@ -22,6 +22,8 @@
 #include "nvs.h"
 #include "nvs_flash.h"
 #include "Arduino.h"
+#include "Wire.h"
+
 
 #include "memfault/core/compiler.h"
 #include "memfault/core/debug_log.h"
@@ -33,7 +35,13 @@
 #include "memfault/panics/assert.h"
 
 
-#include "icp101xx.h"
+#include "pressure.h"
+    
+#include <WiFi.h>
+#include <WiFiMulti.h>
+
+
+
 
 static const char* TAG = "example";
 
@@ -95,7 +103,27 @@ static void prv_poster_task(void *args) {
   }
 }
 
-ICP101xx sensor;
+Pressure psensor; 
+  void sensor_update(){
+    psensor.update();
+  }
+
+
+WiFiMulti wifiMulti;
+
+#define WiFi_timeout 10000  // 10sec Wifi connection timeout
+
+const char* ssid0 = "VM5359006";
+const char* pass0 = "mk3rmXtfdmwc";
+
+const char* ssid1 = "AirGiants";
+const char* pass1 = "airgiants123";
+
+const char* ssid2 = "BTBHub6-JT8K";
+const char* pass2 = "igd6HaHTmkxP";
+
+
+
 
 // This task started by cpu_start.c::start_cpu0_default().
 extern "C" void app_main() {
@@ -126,11 +154,29 @@ extern "C" void app_main() {
 
     initArduino();
 
+    /* SETUP */
     Serial.begin(115200);
-        Serial.println("A");
+    Wire.begin();
+    Wire.setClock(20000);
+    psensor.begin();
+    //imu.begin();
 
-    sensor.measureStart(sensor.VERY_ACCURATE);
-            Serial.println("B");
+      wifiMulti.addAP(ssid0, pass0);
+  wifiMulti.addAP(ssid1, pass1);
+  wifiMulti.addAP(ssid2, pass2);
+
+
+if (wifiMulti.run(WiFi_timeout) == WL_CONNECTED)
+  {
+    Serial.println("");
+    Serial.println("WiFi connected");
+    Serial.println("IP address: ");
+    Serial.println(WiFi.localIP());  //print IP of the connected WiFi network
+  }
+  else  // if not WiFi not connected
+  {
+    Serial.println("WiFi not Connected");
+  }
 
 
 
@@ -149,24 +195,34 @@ if (millis () - target_time >= HEARTBEAT_PERIOD)
     
   //prv_heartbeat_timer();
   }
-  }
-
-
-
-  // Do all the other things you need to do.
   
-  // When the measurement is complete, dataReady() will return true.
-  if (sensor.dataReady()) {
-    // Read and output measured temperature in Fahrenheit and pressure in
-	// Pascal.
-    Serial.print(sensor.getTemperatureF());
-    Serial.print(",");
-    Serial.println(sensor.getPressurePa());
+  sensor_update();
 
-	// And start the next measurement cycle.
-    sensor.measureStart(sensor.VERY_ACCURATE);
+   Serial.print("Pressure: ");
+    Serial.print(psensor.get_pressure());
+    Serial.print("  Temp: ");
+    Serial.print(psensor.get_temperature());
+    Serial.print("  Angle:");
+    //Serial.println(imu.get_angle());
+ if (wifiMulti.run() != WL_CONNECTED) {
+    Serial.println("WiFi not connected!");
   }
 
   // Do more things.
-  delay(100);
+  delay(1000);
+  }
 }
+
+
+
+
+  //  Serial.begin(115200);
+  //       Serial.println("A");
+  //       Wire.begin();
+  //     psensor.begin();
+
+  //   sensor.measureStart(sensor.VERY_ACCURATE);
+  //           Serial.println("B");
+
+
+
