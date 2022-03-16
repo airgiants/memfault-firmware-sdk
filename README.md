@@ -26,7 +26,7 @@ look left for the little ant/alien head. int the lower top half look for quick a
 
 Now wait, very long!
 
-Very very long.
+Very very long. It downloads many things (2Gb?)
 
 There is a thing at the bottom of the screen or right that does a thing. 
 
