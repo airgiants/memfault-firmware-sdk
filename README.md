@@ -32,6 +32,41 @@ There is a thing at the bottom of the screen or right that does a thing.
 
 
 
+
+# UPLOAD symbol files to memfault 
+
+pip3 install memfault-cli
+
+memfault \
+--org-token "oat_G0e0ZTpKuRk4fkGyFJBI6DwvLic9nD8X" \ 
+--org air-giants-limited \
+--project unfurl \
+upload-mcu-symbols \
+--software-type esp32-main \
+--software-version 1.0.0
+./.pio\build\arduino\firmware.elf
+
+memfault --org-token "oat_G0e0ZTpKuRk4fkGyFJBI6DwvLic9nD8X" --org air-giants-limited --project unfurl upload-mcu-symbols --software-type esp32-main --software-version 1.0.0 ./.pio\build\arduino\firmware.elf
+
+
+
+Additional info 
+
+ORg token:
+oat_G0e0ZTpKuRk4fkGyFJBI6DwvLic9nD8X
+
+memfault
+  --org-token ${ORGANIZATION_AUTH_TOKEN} \
+  --org acme-inc \
+  --project smart-sink \
+   upload-mcu-symbols \
+   --software-type stm32-fw \
+   --software-version 1.0.0-alpha \
+   build/stm32-fw.elf
+
+
+
+
 # Sample platformio + espressif32-arduino memfault project
 
 _NOTE: currently this example project is for reference only and does not build!_
