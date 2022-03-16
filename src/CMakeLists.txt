@@ -6,6 +6,7 @@ set(COMPONENT_SRCS
    memfault_platform_device_info.c
    pressure/pressure.cpp
    imu/imu.cpp
+   ota_update/ota_update.cpp
 )
 
 set(COMPONENT_ADD_INCLUDEDIRS .)

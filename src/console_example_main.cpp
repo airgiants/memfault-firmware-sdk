@@ -37,6 +37,7 @@
 
 #include "pressure/pressure.h"
 #include "imu/imu.h"
+#include "ota_update/ota_update.h"
     
 #include <WiFi.h>
 #include <WiFiMulti.h>
@@ -161,6 +162,8 @@ extern "C" void app_main() {
     Wire.begin();
     Wire.setClock(10000);
     psensor.begin();
+    ota_setup();
+
    // imu.begin();
 
     if(!imu.begin())
@@ -208,6 +211,7 @@ if (millis () - target_time >= HEARTBEAT_PERIOD)
   }
   
   sensor_update();
+  ota_handle();
 
    Serial.print("Pressure: ");
     Serial.print(psensor.get_pressure());
