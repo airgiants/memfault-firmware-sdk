@@ -38,6 +38,7 @@
 #include "pressure/pressure.h"
 #include "imu/imu.h"
 #include "ota_update/ota_update.h"
+#include "config/config.h"
     
 #include <WiFi.h>
 #include <WiFiMulti.h>
@@ -113,6 +114,7 @@ Pressure psensor;
 Imu imu;
 
 WiFiMulti wifiMulti;
+Board board;
 
 #define WiFi_timeout 10000  // 10sec Wifi connection timeout
 
@@ -171,7 +173,7 @@ extern "C" void app_main() {
     /* There was a problem detecting the BNO055 ... check your connections */
     Serial.print("Ooops, no BNO055 detected ... Check your wiring or I2C ADDR!");
    //
-    while(1);
+    //while(1);
   }
     //imu.begin();
 
@@ -213,19 +215,19 @@ if (millis () - target_time >= HEARTBEAT_PERIOD)
   
   sensor_update();
   ota_handle();
+  board.update();
+//    Serial.print("Pressure: ");
+//     Serial.print(psensor.get_pressure());
+//     Serial.print("  Temp: ");
+//     Serial.print(psensor.get_temperature());
+//     Serial.print("  Angle:");
+//     Serial.println(imu.get_angle());
+//  if (wifiMulti.run() != WL_CONNECTED) {
+//     Serial.println("WiFi not connected!");
+//   }
 
-   Serial.print("Pressure: ");
-    Serial.print(psensor.get_pressure());
-    Serial.print("  Temp: ");
-    Serial.print(psensor.get_temperature());
-    Serial.print("  Angle:");
-    Serial.println(imu.get_angle());
- if (wifiMulti.run() != WL_CONNECTED) {
-    Serial.println("WiFi not connected!");
-  }
-
-  // Do more things.
-  delay(1000);
+//   // Do more things.
+//   delay(1000);
   }
 }
 
