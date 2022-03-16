@@ -4,7 +4,7 @@ set(COMPONENT_SRCS
    config.c
    console_example_main.cpp
    memfault_platform_device_info.c
-   pressure.cpp
+   pressure/pressure.cpp
    imu/imu.cpp
 )
 

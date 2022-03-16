@@ -35,7 +35,7 @@
 #include "memfault/panics/assert.h"
 
 
-#include "pressure.h"
+#include "pressure/pressure.h"
 #include "imu/imu.h"
     
 #include <WiFi.h>
