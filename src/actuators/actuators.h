@@ -1,8 +1,7 @@
 #ifndef actuators_h
 #define actuators_h
 #include <ESP32Servo.h>
-#include "actuator.h"
-#include "board-config.h"
+#include "actuator/actuator.h"
 
 
 

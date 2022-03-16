@@ -1,6 +1,6 @@
 
-#include "actuators.h"
-#include "board-config.h"
+#include "actuators/actuators.h"
+#include "config/config.h"
 
 //see above for servo pins PIN_SERVOx
 
