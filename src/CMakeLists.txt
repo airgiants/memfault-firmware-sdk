@@ -7,6 +7,7 @@ set(COMPONENT_SRCS
    pressure/pressure.cpp
    imu/imu.cpp
    ota_update/ota_update.cpp
+   actuators/actuators.cpp
 )
 
 set(COMPONENT_ADD_INCLUDEDIRS .)
