@@ -175,7 +175,7 @@ extern "C" void app_main() {
   }
     //imu.begin();
 
-      wifiMulti.addAP(ssid0, pass0);
+  wifiMulti.addAP(ssid0, pass0);
   wifiMulti.addAP(ssid1, pass1);
   wifiMulti.addAP(ssid2, pass2);
 
@@ -186,7 +186,7 @@ if (wifiMulti.run(WiFi_timeout) == WL_CONNECTED)
     Serial.println("WiFi connected");
     Serial.println("IP address: ");
     Serial.println(WiFi.localIP());  //print IP of the connected WiFi network
-        ota_setup();
+    ota_setup();
   }
   else  // if not WiFi not connected
   {
