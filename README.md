@@ -16,6 +16,7 @@ https://github.com/airgiants/memfault-test.git
 in that directory do 
 
 git checkout unfurl-test
+
 git submodule update --init --recursive  
 
 Open Vs code and wait for a bit!
