@@ -162,7 +162,7 @@ extern "C" void app_main() {
     Wire.begin();
     Wire.setClock(10000);
     psensor.begin();
-    ota_setup();
+
 
    // imu.begin();
 
@@ -186,6 +186,7 @@ if (wifiMulti.run(WiFi_timeout) == WL_CONNECTED)
     Serial.println("WiFi connected");
     Serial.println("IP address: ");
     Serial.println(WiFi.localIP());  //print IP of the connected WiFi network
+        ota_setup();
   }
   else  // if not WiFi not connected
   {
