@@ -1,3 +1,32 @@
+# Setup IDE
+
+Get VS code https://code.visualstudio.com/download
+
+Install platform.io
+
+https://docs.platformio.org/en/latest/integration/ide/vscode.html
+
+Close and reopen VS code!
+
+
+clone this repository 
+
+https://github.com/airgiants/memfault-test.git
+
+in that directory do 
+
+git submodule update --init --recursive  
+
+Open Vs code and wait for a bit!
+Open the project in VS code:
+
+look left for the little ant/alien head. int the lower top half look for quick assess-> PIO Home open -> open [...]\platformio-esp32-arduino
+Now wait, very long!
+Very very long.
+There is a thing at the bottom of the screen or right that does a thing. 
+
+
+
 # Sample platformio + espressif32-arduino memfault project
 
 _NOTE: currently this example project is for reference only and does not build!_
