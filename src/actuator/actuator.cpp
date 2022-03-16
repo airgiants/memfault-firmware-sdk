@@ -1,5 +1,5 @@
 #include "actuator.h"
-#include "board-config.h"
+#include "config/config.h"
 #include "constrain.h"
 
 

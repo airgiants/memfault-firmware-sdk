@@ -1,3 +1,6 @@
+#ifndef config_h
+#define config_h
+
 
 
 //User led's 
@@ -45,6 +48,6 @@
 #define PIN_SENSE_VIN 15
 
 
-
+#endif
 
 
