@@ -23,8 +23,11 @@ Open Vs code and wait for a bit!
 Open the project in VS code:
 
 look left for the little ant/alien head. int the lower top half look for quick assess-> PIO Home open -> open [...]\platformio-esp32-arduino
+
 Now wait, very long!
+
 Very very long.
+
 There is a thing at the bottom of the screen or right that does a thing. 
 
 
