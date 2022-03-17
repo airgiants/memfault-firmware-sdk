@@ -4,3 +4,6 @@
 [submodule "packages/arduino-esp32"]
 	path = packages/arduino-esp32
 	url = git@github.com:espressif/arduino-esp32.git
+[submodule "thirdparty/public_regulated_data_types"]
+	path = thirdparty/public_regulated_data_types
+	url = https://github.com/UAVCAN/public_regulated_data_types
