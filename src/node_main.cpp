@@ -38,6 +38,7 @@
 #include "imu/imu.h"
 #include "ota_update/ota_update.h"
 #include "config/config.h"
+#include "can/can.h"
     
 #include <WiFi.h>
 #include <WiFiMulti.h>
@@ -195,7 +196,7 @@ if (wifiMulti.run(WiFi_timeout) == WL_CONNECTED)
   }
 
 
-
+can_setup();
 
 
 #define HEARTBEAT_PERIOD (1*60*1000L)
@@ -215,6 +216,7 @@ if (millis () - target_time >= HEARTBEAT_PERIOD)
   sensor_update();
   ota_handle();
   board.update();
+  heartbeat_loop();
 //    Serial.print("Pressure: ");
 //     Serial.print(psensor.get_pressure());
 //     Serial.print("  Temp: ");

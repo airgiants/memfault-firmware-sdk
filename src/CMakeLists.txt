@@ -7,6 +7,7 @@ set(COMPONENT_SRCS
    ota_update/ota_update.cpp
    actuators/actuators.cpp
    config/config.cpp
+   can/can.cpp
 )
 
 set(COMPONENT_ADD_INCLUDEDIRS .)
