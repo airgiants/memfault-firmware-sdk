@@ -2,7 +2,7 @@ set(COMPONENT_SRCS
    cmd_system.c
    cmd_wifi.c
    config.c
-   console_example_main.cpp
+   node_main.cpp
    memfault_platform_device_info.c
    pressure/pressure.cpp
    imu/imu.cpp

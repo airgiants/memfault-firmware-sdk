@@ -2,7 +2,7 @@
 # in this exact order for cmake to work correctly
 cmake_minimum_required(VERSION 3.5)
 
-set(PROJECT_NAME memfault-esp32-demo-app)
+set(PROJECT_NAME node-app)
 set(CMAKE_PROJECT_NAME ${PROJECT_NAME})
 set(MEMFAULT_PLATFORM_PORT_COMPONENTS src)
 # set(MEMFAULT_ESP_HTTP_CLIENT_ENABLE 0)
