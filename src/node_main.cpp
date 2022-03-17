@@ -39,6 +39,7 @@
 #include "ota_update/ota_update.h"
 #include "config/config.h"
 #include "can/can.h"
+#include "mqtt/mqtt.h"
     
 #include <WiFi.h>
 #include <WiFiMulti.h>
@@ -164,7 +165,7 @@ extern "C" void app_main() {
     Wire.begin();
     Wire.setClock(10000);
     psensor.begin();
-
+    setup_mqtt();
 
    // imu.begin();
 

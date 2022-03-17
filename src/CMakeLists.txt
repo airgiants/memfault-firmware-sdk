@@ -8,6 +8,7 @@ set(COMPONENT_SRCS
    actuators/actuators.cpp
    config/config.cpp
    can/can.cpp
+   mqtt/mqtt.cpp
 )
 
 set(COMPONENT_ADD_INCLUDEDIRS .)
