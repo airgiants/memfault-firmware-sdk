@@ -10,6 +10,7 @@ Board::Board(){
     pinMode(LED_S1,OUTPUT);
     _heartbeat_frequency = 500;
     _last_heartbeat = millis();
+    _id = 55;
 }
 
 
@@ -23,4 +24,17 @@ void Board::update(){
 }
 void Board::set_hb_freq(int freq){
     _heartbeat_frequency = freq;
+}
+
+int Board::get_id(){
+  return _id;
+}
+
+bool Board::set_id(int id){
+  if(id < 128){
+      _id = id;
+    return true;
+  }
+  else return false;
+
 }

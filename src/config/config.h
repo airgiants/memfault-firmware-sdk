@@ -56,10 +56,13 @@ class Board
     Board( );
     void update();
     void set_hb_freq(int freq);
+    int get_id();
+    bool set_id(int id);
 
   private:
     int _heartbeat_frequency;
     long _last_heartbeat;
+    int _id; //stores node ID 
 
 };
 
