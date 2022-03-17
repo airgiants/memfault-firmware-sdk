@@ -48,6 +48,20 @@
 #define PIN_SENSE_VIN 15
 
 
+
+
+class Board
+{
+  public:
+    Board( );
+    void update();
+    void set_hb_freq(int freq);
+
+  private:
+    int _heartbeat_frequency;
+    long _last_heartbeat;
+
+};
+
+
 #endif
-
-

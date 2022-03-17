@@ -6,6 +6,7 @@ set(COMPONENT_SRCS
    imu/imu.cpp
    ota_update/ota_update.cpp
    actuators/actuators.cpp
+   config/config.cpp
 )
 
 set(COMPONENT_ADD_INCLUDEDIRS .)
