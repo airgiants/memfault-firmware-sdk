@@ -9,9 +9,9 @@
 class Actuator
 {
   public:
-    Actuator( );
-    Actuator(int pin );
-    Actuator(int pin, int min_val, int max_val);
+    Actuator();
+   // Actuator(int pin );
+   // Actuator(int pin, int min_val, int max_val);
     void set_pin(int pin);
     int get();
     bool update();

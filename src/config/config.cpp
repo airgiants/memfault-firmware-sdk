@@ -11,6 +11,7 @@ Board::Board(){
     _heartbeat_frequency = 500;
     _last_heartbeat = millis();
     _id = 55;
+    disable_power();
 }
 
 
@@ -36,5 +37,14 @@ bool Board::set_id(int id){
     return true;
   }
   else return false;
+}
 
+void Board::enable_power(){
+    pinMode(PWR_EN, OUTPUT); //"turn on servo Power"
+    digitalWrite(PWR_EN, PWR_EN_DIR);
+}
+
+void Board::disable_power(){
+    pinMode(PWR_EN, OUTPUT); //"turn on servo Power"
+    digitalWrite(PWR_EN, !PWR_EN_DIR);
 }

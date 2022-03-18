@@ -49,7 +49,6 @@
 
 
 
-
 class Board
 {
   public:
@@ -58,6 +57,8 @@ class Board
     void set_hb_freq(int freq);
     int get_id();
     bool set_id(int id);
+    void enable_power();
+    void disable_power();
 
   private:
     int _heartbeat_frequency;

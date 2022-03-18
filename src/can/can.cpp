@@ -5,12 +5,20 @@
 
 
 using namespace uavcan::node;
+//using namespace uavcan::si::sample::pressue;
+using namespace uavcan::metatransport::serial;
+
 ArduinoUAVCAN uc(12, transmitCanFrame);
 
 
 Heartbeat_1_0<> hb;
+Fragment_0_2<> fg;
 
 CANMessage can_frame;
+
+
+
+
 bool transmitCanFrame(CanardFrame const & frame)
 {
 
@@ -32,10 +40,6 @@ bool transmitCanFrame(CanardFrame const & frame)
 
 
 void can_setup(){
-
-
-
-
 
 
   /* Attach interrupt handler to register MCP2515 signaled by taking INT low */
@@ -81,6 +85,28 @@ void can_setup(){
 
 }
 
+void CAN_log(const String &s){
+
+  uint8_t dataArray[s.length()];
+ s.toCharArray((char*)dataArray, s.length());
+
+//     memcpy(fg.data, dataArray, MIN(s.length(), uavcan_metatransport_serial_Fragment_0_2_data_ARRAY_CAPACITY_)); 
+//    // &(fg.data + uavcan_metatransport_serial_Fragment_0_2_data_ARRAY_CAPACITY_) = s.length();
+
+
+// //fg.count = MIN(s.length,uavcan_metatransport_serial_Fragment_0_2_data_ARRAY_CAPACITY_);
+
+//     //  for (uint8_t i=0 ; i< MIN(uavcan_metatransport_serial_Fragment_0_2_data_ARRAY_CAPACITY_, s.length()) ; i++) {
+//     //     fg.data[i] = dataArray[i];
+//     //  }
+  
+
+
+uc.publish(fg);
+
+
+}
+
 
 void heartbeat_loop(){
 
@@ -97,8 +123,11 @@ void heartbeat_loop(){
   }
 
   /* Transmit all enqeued CAN frames */
-  while(uc.transmitCanFrame()) { }
 
 
+}
 
+
+void send_uavcan(){
+    while(uc.transmitCanFrame()) { };
 }

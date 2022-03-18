@@ -40,6 +40,8 @@
 #include "config/config.h"
 #include "can/can.h"
 #include "mqtt/mqtt.h"
+#include "actuator/actuator.h"
+#include "actuators/actuators.h"
     
 #include <WiFi.h>
 #include <WiFiMulti.h>
@@ -116,6 +118,7 @@ Imu imu;
 
 WiFiMulti wifiMulti;
 Board board;
+Actuators actuators;
 
 #define WiFi_timeout 10000  // 10sec Wifi connection timeout
 
@@ -198,7 +201,7 @@ if (wifiMulti.run(WiFi_timeout) == WL_CONNECTED)
 
 
 can_setup();
-
+actuators.begin();
 
 #define HEARTBEAT_PERIOD (1*60*1000L)
 unsigned long target_time = 0L ;
@@ -217,7 +220,9 @@ if (millis () - target_time >= HEARTBEAT_PERIOD)
   sensor_update();
   ota_handle();
   board.update();
+  actuators.update();
   heartbeat_loop();
+  send_uavcan();
 //    Serial.print("Pressure: ");
 //     Serial.print(psensor.get_pressure());
 //     Serial.print("  Temp: ");

@@ -12,6 +12,7 @@ static uint32_t constexpr CAN_EFF_BITMASK   = 0x80000000;
 bool transmitCanFrame(CanardFrame const & frame);
 void can_setup();
 void heartbeat_loop();
+void send_uavcan();
 
 
 #endif

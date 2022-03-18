@@ -7,3 +7,6 @@
 [submodule "thirdparty/public_regulated_data_types"]
 	path = thirdparty/public_regulated_data_types
 	url = https://github.com/UAVCAN/public_regulated_data_types
+[submodule "src/ylidar-sdk"]
+	path = src/ylidar-sdk
+	url = https://github.com/airgiants/ylidar-sdk.git

@@ -1,6 +1,6 @@
 #include "actuator.h"
 #include "config/config.h"
-#include "constrain.h"
+#include "util/constrain.h"
 
 
 Actuator::Actuator(){
@@ -8,19 +8,19 @@ Actuator::Actuator(){
 	_min = 0;
 	_max = 180;
 }
-Actuator::Actuator(int pin){
-	_pin = pin;
-	_min = 0;
-	_max = 180;
-}
+// Actuator::Actuator(int pin){
+// 	_pin = pin;
+// 	_min = 0;
+// 	_max = 180;
+// }
 
-Actuator::Actuator(int pin, int min_val, int max_val){
-	_min = min_val;
-	_max = max_val;
-	_pin = pin;
-}
+// Actuator::Actuator(int pin, int min_val, int max_val){
+// 	_min = min_val;
+// 	_max = max_val;
+// 	_pin = pin;
+// }
     
-void set_pin(int pin){
+void Actuator::set_pin(int pin){
 	_pin = pin;
 }
 
