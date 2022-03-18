@@ -2,6 +2,7 @@ set(COMPONENT_SRCS
    config.c
    node_main.cpp
    memfault_platform_device_info.c
+   util/constrain.cpp
    pressure/pressure.cpp
    imu/imu.cpp
    ota_update/ota_update.cpp
