@@ -10,6 +10,7 @@ set(COMPONENT_SRCS
    config/config.cpp
    can/can.cpp
    mqtt/mqtt.cpp
+   bellow/bellow.cpp
 )
 
 set(COMPONENT_ADD_INCLUDEDIRS .)
