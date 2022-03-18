@@ -5,6 +5,7 @@ set(COMPONENT_SRCS
    pressure/pressure.cpp
    imu/imu.cpp
    ota_update/ota_update.cpp
+   actuator/actuator.cpp
    actuators/actuators.cpp
    config/config.cpp
    can/can.cpp
