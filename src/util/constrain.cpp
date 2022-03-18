@@ -1,4 +1,7 @@
+#include "Arduino.h"
 #include "constrain.h"
+
+
 float fmap(float x, float in_min, float in_max, float out_min, float out_max)
 {
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
@@ -10,7 +13,7 @@ float fmapConstrained(float x, float in_min, float in_max, float out_min, float 
 {
   float f = fmap( x,  in_min, in_max, out_min, out_max);
 
-  if( f < min(out_min, out_max) )
+  if( f < fmin(out_min, out_max) )
     f = min(out_min, out_max);
 
   if( f > max(out_min, out_max) )
