@@ -120,6 +120,7 @@ Imu imu;
 
 WiFiMulti wifiMulti;
 Board board;
+Actuators actuators;
 Bellow bellow;
 
 
