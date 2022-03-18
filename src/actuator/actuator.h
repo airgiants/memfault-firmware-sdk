@@ -18,8 +18,10 @@ class Actuator
     void set(int val);
     void setScaled(float val);
 
-    void max(int max_val);
-    void min(int min_val);
+    int max(int max_val);
+    int min(int min_val);
+    int max();
+    int min();
     
   private:
     int _pos;

@@ -26,8 +26,9 @@ void Actuators::begin(){
     board.enable_power();
 
     inflate.set_servo(PIN_SERVO0);
+    inflate.set(50);
     deflate.set_servo(PIN_SERVO1);
-
+    deflate.set(50);
     
 
 }

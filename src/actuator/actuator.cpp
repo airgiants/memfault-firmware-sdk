@@ -29,17 +29,28 @@ void Actuator::set_servo(int pin){
 	serv.attach(pin);
 }
 
-void Actuator::min(int min_val){
+int Actuator::min(int min_val){
 	_min = min_val;
+return _min;
+}
+
+int  Actuator::max(int max_val){
+	_max = max_val;
+	return _max;
+}
+
+int Actuator::min(){
+	return _min; 
 
 }
 
-void Actuator::max(int max_val){
-	_max = max_val;
+int Actuator::max(){
+	return _max; 
 }
 
 void Actuator::set(int val){
-	_pos = val;
+
+	_pos = constrain(val, _min, _max);
 }
 int Actuator::get(){
 	return _pos;
