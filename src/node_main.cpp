@@ -42,6 +42,8 @@
 #include "mqtt/mqtt.h"
 #include "actuator/actuator.h"
 #include "actuators/actuators.h"
+#include "bellow/bellow.h"
+
     
 #include <WiFi.h>
 #include <WiFiMulti.h>
@@ -118,7 +120,8 @@ Imu imu;
 
 WiFiMulti wifiMulti;
 Board board;
-Actuators actuators;
+Bellow bellow;
+
 
 #define WiFi_timeout 10000  // 10sec Wifi connection timeout
 
@@ -201,7 +204,7 @@ if (wifiMulti.run(WiFi_timeout) == WL_CONNECTED)
 
 
 can_setup();
-actuators.begin();
+bellow.begin();
 
 #define HEARTBEAT_PERIOD (1*60*1000L)
 unsigned long target_time = 0L ;
@@ -213,14 +216,18 @@ unsigned long target_time = 0L ;
 if (millis () - target_time >= HEARTBEAT_PERIOD)
   {
     target_time += HEARTBEAT_PERIOD ;   // change scheduled time exactly, no slippage will happen
-    
+
   //prv_heartbeat_timer();
   }
-  
+
+
+
+
+
   sensor_update();
   ota_handle();
   board.update();
-  actuators.update();
+  bellow.update(200); //update every 200 ms
   heartbeat_loop();
   send_uavcan();
 //    Serial.print("Pressure: ");
