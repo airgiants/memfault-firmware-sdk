@@ -37,7 +37,7 @@
 #include "pressure/pressure.h"
 #include "imu/imu.h"
 #include "ota_update/ota_update.h"
-#include "config/config.h"
+#include "board/board.h"
 #include "can/can.h"
 #include "mqtt/mqtt.h"
 #include "actuator/actuator.h"
@@ -132,7 +132,7 @@ const char* ssid2 = "BTBHub6-JT8K";
 const char* pass2 = "igd6HaHTmkxP";
 
 
-
+Config config;
 
 // This task started by cpu_start.c::start_cpu0_default().
 extern "C" void app_main() {
@@ -198,6 +198,8 @@ if (wifiMulti.run(WiFi_timeout) == WL_CONNECTED)
   {
     Serial.println("WiFi not Connected");
   }
+
+config.read();
 
 
 can_setup();

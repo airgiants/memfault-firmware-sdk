@@ -1,6 +1,6 @@
 
 #include "actuator/actuator.h"
-#include "config/config.h"
+#include "board/board.h"
 #include "actuators.h"
 
 

@@ -7,9 +7,10 @@ set(COMPONENT_SRCS
    ota_update/ota_update.cpp
    actuator/actuator.cpp
    actuators/actuators.cpp
-   config/config.cpp
+   board/board.cpp
    can/can.cpp
    mqtt/mqtt.cpp
+   config/config.cpp
 )
 
 set(COMPONENT_ADD_INCLUDEDIRS .)
