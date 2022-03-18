@@ -1,3 +1,4 @@
+#include "config/config.h"
 #include "ota_update.h"
 #include "Arduino.h"
 
@@ -9,7 +10,7 @@
 #include "HardwareSerial.h"
 
 
-
+extern Board board;
 
 /*    
 0  ARDUINO_EVENT_WIFI_READY               < ESP32 WiFi ready
@@ -174,7 +175,7 @@ void ota_setup(){
   ArduinoOTA
     .onStart([]() {
     //delete_wdt();
-
+    board.disable_power();
     //client.disconnect(); Disconnect MQTT
       String type;
       if (ArduinoOTA.getCommand() == U_FLASH)
@@ -200,6 +201,7 @@ void ota_setup(){
       else if (error == OTA_CONNECT_ERROR) Serial.println("Connect Failed");
       else if (error == OTA_RECEIVE_ERROR) Serial.println("Receive Failed");
       else if (error == OTA_END_ERROR) Serial.println("End Failed");
+      board.enable_power();
     });
 
 
