@@ -25,12 +25,25 @@ void Actuators::begin(){
 
     board.enable_power();
 
-    // inflate.set_pin(PIN_SERVO0);
-    // deflate.set_pin(PIN_SERVO1);
+    inflate.set_servo(PIN_SERVO0);
+    deflate.set_servo(PIN_SERVO1);
+
+    
 
 }
 
 void Actuators::update(){
+    const int period = 50;
+    static unsigned long prev = 0;
+    unsigned long const now = millis();
+    if(now - prev > period) {
+
+        inflate.update();
+        deflate.update();
+        
+        prev = now;
+    }
+
 
 }
 // void setupServo() {
