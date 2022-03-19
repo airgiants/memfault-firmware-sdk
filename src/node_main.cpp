@@ -43,7 +43,7 @@
 #include "actuator/actuator.h"
 #include "actuators/actuators.h"
 #include "bellow/bellow.h"
-
+#include "config/config.h"
     
 #include <WiFi.h>
 #include <WiFiMulti.h>

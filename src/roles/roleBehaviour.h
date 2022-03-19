@@ -3,7 +3,7 @@
 
 #include "role.h"
 
-class RoleBehaviour:Role
+class RoleBehaviour:public Role
 {
     public:
     RoleBehaviour();

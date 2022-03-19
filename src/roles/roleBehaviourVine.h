@@ -4,7 +4,7 @@
 
 #include "roleBehaviour.h"
 
-class RoleBehaviourVine:RoleBehaviour
+class RoleBehaviourVine:public RoleBehaviour
 {
     public:
     RoleBehaviourVine();

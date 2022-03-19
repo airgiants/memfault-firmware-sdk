@@ -1,4 +1,4 @@
-#include "config/config.h"
+#include "board/board.h"
 #include "ota_update.h"
 #include "Arduino.h"
 
