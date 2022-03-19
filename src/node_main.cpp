@@ -136,7 +136,7 @@ const char* ssid2 = "BTBHub6-JT8K";
 const char* pass2 = "igd6HaHTmkxP";
 
 
-Config config;
+//TODO Config config;
 
 // This task started by cpu_start.c::start_cpu0_default().
 extern "C" void app_main() {
@@ -203,7 +203,7 @@ if (wifiMulti.run(WiFi_timeout) == WL_CONNECTED)
     Serial.println("WiFi not Connected");
   }
 
-config.read();
+//TODO config.read();
 
 
 can_setup();
