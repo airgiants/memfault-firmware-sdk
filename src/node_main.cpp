@@ -210,9 +210,10 @@ can_setup();
 bellow.begin();
 #define HEARTBEAT_PERIOD (1*60*1000L)
 unsigned long target_time = 0L ;
-
-bellow.set_drive(-1.0);
-  bellow.update(50);
+unsigned long target_time1 = 0L ;
+float d = 1.0;
+bellow.set_drive(d);
+//bellow.set_drive(1.0);
   /* Main loop */
 while(run) {
 if (millis () - target_time >= HEARTBEAT_PERIOD)
@@ -222,60 +223,31 @@ if (millis () - target_time >= HEARTBEAT_PERIOD)
   //prv_heartbeat_timer();
   }
 
-
-
-
+if (millis () - target_time1 >= 200)
+  {
+    target_time1 += 200 ;   // change scheduled time exactly, no slippage will happen
+  d = d-0.01;
+  bellow.set_drive(d);
+  	 Serial.print("Drive: ");
+    Serial.println(d);
+  if (d <= -1.0)
+  {
+    d =1.0;
+  }
+  
+  }
 
   sensor_update();
   ota_handle();
   board.update();
   bellow.update(50); //update every 200 ms
-
-
-      const int period = 1000;
-    static unsigned long prev = 0;
-    unsigned long const now = millis();
-    if(now - prev > period) {
-
-      bellow.set_drive((bellow.get_drive())+0.1);
-      Serial.print("Drive: ");
-        bellow.update(50);
-    Serial.print(bellow.get_drive());
-  
-  
-        
-        prev = now;
-    }
-
-
-
   heartbeat_loop();
   send_uavcan();
-//    Serial.print("Pressure: ");
-//     Serial.print(psensor.get_pressure());
-//     Serial.print("  Temp: ");
-//     Serial.print(psensor.get_temperature());
-//     Serial.print("  Angle:");
-//     Serial.println(imu.get_angle());
-//  if (wifiMulti.run() != WL_CONNECTED) {
-//     Serial.println("WiFi not connected!");
-//   }
 
-//   // Do more things.
-//   delay(1000);
   }
 }
 
 
-
-
-  //  Serial.begin(115200);
-  //       Serial.println("A");
-  //       Wire.begin();
-  //     psensor.begin();
-
-  //   sensor.measureStart(sensor.VERY_ACCURATE);
-  //           Serial.println("B");
 
 
 
