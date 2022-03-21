@@ -214,6 +214,8 @@ unsigned long target_time = 0L ;
 
 
 
+bellow.set_drive(-1.0);
+  bellow.update(50);
   /* Main loop */
   while(true) {
 if (millis () - target_time >= HEARTBEAT_PERIOD)

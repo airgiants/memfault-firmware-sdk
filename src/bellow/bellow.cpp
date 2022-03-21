@@ -19,12 +19,14 @@ void Bellow::begin(){
     psensor.begin();
     actuators.begin();
     _update_period = 100; //100 ms
+    _drive = 0.0;
 
 }
 
 float Bellow::get_drive(void){
     return _drive;
 }
+
 
 void Bellow::set_drive(float drive){
 
@@ -73,6 +75,8 @@ float Bellow::get_pressure(){
 }
 
 void Bellow::update(int period){
+    actuators.update();
+    return;
     _update_period = period;
 
     float pressure = get_pressure() - _atmospheric_pressure;
