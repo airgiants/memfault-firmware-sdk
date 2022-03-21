@@ -171,11 +171,12 @@ void ota_setup(){
   // Password can be set with it's md5 value as well
   // MD5(admin) = 21232f297a57a5a743894a0e4a801fc3
   // ArduinoOTA.setPasswordHash("21232f297a57a5a743894a0e4a801fc3");
-
+extern bool run;
   ArduinoOTA
     .onStart([]() {
     //delete_wdt();
     board.disable_power();
+    run = false;
     //client.disconnect(); Disconnect MQTT
       String type;
       if (ArduinoOTA.getCommand() == U_FLASH)
@@ -202,6 +203,7 @@ void ota_setup(){
       else if (error == OTA_RECEIVE_ERROR) Serial.println("Receive Failed");
       else if (error == OTA_END_ERROR) Serial.println("End Failed");
       board.enable_power();
+      run = true;
     });
 
 

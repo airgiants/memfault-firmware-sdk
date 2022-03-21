@@ -122,7 +122,7 @@ WiFiMulti wifiMulti;
 Board board;
 Actuators actuators;
 Bellow bellow;
-
+bool run = true;
 
 #define WiFi_timeout 10000  // 10sec Wifi connection timeout
 
@@ -214,7 +214,7 @@ unsigned long target_time = 0L ;
 bellow.set_drive(-1.0);
   bellow.update(50);
   /* Main loop */
-  while(true) {
+while(run) {
 if (millis () - target_time >= HEARTBEAT_PERIOD)
   {
     target_time += HEARTBEAT_PERIOD ;   // change scheduled time exactly, no slippage will happen
