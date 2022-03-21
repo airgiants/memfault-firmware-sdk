@@ -18,7 +18,7 @@ class Bellow
 
     
   private:
-    int _drive;
+    float _drive;
     float _atmospheric_pressure, _max_pressure, _target_pressure;
     float _pressure, _pressure_error, _absoute_error;
     int _update_period;

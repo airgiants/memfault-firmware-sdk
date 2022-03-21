@@ -30,16 +30,16 @@ float Bellow::get_drive(void){
 
 void Bellow::set_drive(float drive){
 
-    drive = fconstrain( drive, -1.0, 1.0 );
-    _drive = drive;
+    _drive = fconstrain( drive, -1.0, 1.0 );
+ 
 
     //driveServoAngle(inflateServo, 1.0);
     // driveServoAngle(deflateServo, 1.0);
     //return;
-    
-    if( drive > 0.0 ) //increase pressure
+ 
+    if( _drive > 0.0 ) //increase pressure
     {
-        actuators.inflate.setScaled(drive);
+        actuators.inflate.setScaled(_drive);
         actuators.deflate.setScaled(0);
   
         //if( traceBellows ){Serial.print(n); Serial.print(" inflate "); Serial.print(drive);Serial.print(" deflate "); Serial.println(0);}
@@ -47,7 +47,7 @@ void Bellow::set_drive(float drive){
     else // decrease pressure
     {
         actuators.inflate.setScaled(0);
-        actuators.deflate.setScaled(drive);
+        actuators.deflate.setScaled(-_drive);
 
         //if( traceBellows ){Serial.print(n); Serial.print(" inflate "); Serial.print(0);Serial.print(" deflate "); Serial.println(-drive);}
     }
