@@ -208,11 +208,8 @@ if (wifiMulti.run(WiFi_timeout) == WL_CONNECTED)
 
 can_setup();
 bellow.begin();
-
 #define HEARTBEAT_PERIOD (1*60*1000L)
 unsigned long target_time = 0L ;
-
-
 
 bellow.set_drive(-1.0);
   bellow.update(50);
@@ -232,7 +229,26 @@ if (millis () - target_time >= HEARTBEAT_PERIOD)
   sensor_update();
   ota_handle();
   board.update();
-  bellow.update(200); //update every 200 ms
+  bellow.update(50); //update every 200 ms
+
+
+      const int period = 1000;
+    static unsigned long prev = 0;
+    unsigned long const now = millis();
+    if(now - prev > period) {
+
+      bellow.set_drive((bellow.get_drive())+0.1);
+      Serial.print("Drive: ");
+        bellow.update(50);
+    Serial.print(bellow.get_drive());
+  
+  
+        
+        prev = now;
+    }
+
+
+
   heartbeat_loop();
   send_uavcan();
 //    Serial.print("Pressure: ");
