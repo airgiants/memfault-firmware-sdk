@@ -57,13 +57,16 @@ class Board
     void set_hb_freq(int freq);
     int get_id();
     bool set_id(int id);
+    
     void enable_power();
     void disable_power();
+    bool power_good();
 
   private:
     int _heartbeat_frequency;
     long _last_heartbeat;
     int _id; //stores node ID 
+    bool _pwr_good;
 
 };
 
