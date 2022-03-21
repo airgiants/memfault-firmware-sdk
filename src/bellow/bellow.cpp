@@ -22,10 +22,14 @@ void Bellow::begin(){
 
 }
 
+float Bellow::get_drive(void){
+    return _drive;
+}
 
 void Bellow::set_drive(float drive){
 
     drive = fconstrain( drive, -1.0, 1.0 );
+    _drive = drive;
 
     //driveServoAngle(inflateServo, 1.0);
     // driveServoAngle(deflateServo, 1.0);

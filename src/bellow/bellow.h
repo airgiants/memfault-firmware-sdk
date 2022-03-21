@@ -8,6 +8,7 @@ class Bellow
     Bellow();
     void begin();
     void set_drive(float drive);
+    float get_drive();
     void fill();
     void empty();
     void set_pressure(float target);
