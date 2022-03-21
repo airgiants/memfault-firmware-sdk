@@ -4,7 +4,7 @@
 #include <ESP32Servo.h>
 
 
-Servo serv;
+
 
 Actuator::Actuator(){
 	_pin = 0;
@@ -25,8 +25,8 @@ Actuator::Actuator(int pin, int min_val, int max_val){
     
 void Actuator::set_servo(int pin){
 	_pin = pin;
-	serv.setPeriodHertz(50);
-	serv.attach(pin);
+	_serv.setPeriodHertz(50);
+	_serv.attach(pin,900,1900);
 }
 
 int Actuator::min(int min_val){
@@ -60,7 +60,7 @@ void Actuator::setScaled(float val){
 }
 
 bool Actuator::update(){
-	serv.write(_pos);
+	_serv.write(_pos);
 	return true;
 }
 

@@ -27,5 +27,6 @@ class Actuator
     int _pos;
     int _min, _max;
     int _pin;
+    Servo _serv;
 };
 #endif
