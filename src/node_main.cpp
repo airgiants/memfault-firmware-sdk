@@ -215,7 +215,7 @@ float d = 1.0;
 bellow.set_drive(d);
 //bellow.set_drive(1.0);
   /* Main loop */
-while(run) {
+while(true) {
 if (millis () - target_time >= HEARTBEAT_PERIOD)
   {
     target_time += HEARTBEAT_PERIOD ;   // change scheduled time exactly, no slippage will happen
@@ -236,13 +236,14 @@ if (millis () - target_time1 >= 200)
   }
   
   }
-
-  sensor_update();
-  ota_handle();
-  board.update();
-  bellow.update(50); //update every 200 ms
-  heartbeat_loop();
-  send_uavcan();
+  if(run){
+    sensor_update();
+    ota_handle();
+    board.update();
+    bellow.update(50); //update every 200 ms
+    heartbeat_loop();
+    send_uavcan();
+  }
 
   }
 }
