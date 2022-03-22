@@ -1,6 +1,9 @@
 #ifndef board_h
 #define board_h
 
+#include <Adafruit_INA219.h>
+
+
 
 
 //User led's 
@@ -55,19 +58,30 @@ class Board
     Board( );
     void update();
     void set_hb_freq(int freq);
-    int get_id();
+    int  get_id();
     bool set_id(int id);
     
     void enable_power();
     void disable_power();
     bool power_good();
 
+    float output_voltage();
+    float output_current();
+    float output_power();
+    float input_voltage();
+
   private:
+    bool _init;
     int _heartbeat_frequency;
     long _last_heartbeat;
     int _id; //stores node ID 
     bool _pwr_good;
-
+    float _out_voltage;
+    float _input_voltage;
+    float _out_current;
+    float _out_power;
+    Adafruit_INA219 current_sensor;
+    float _adc_to_V(int raw);
 };
 
 
