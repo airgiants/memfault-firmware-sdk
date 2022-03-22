@@ -223,13 +223,15 @@ if (millis () - target_time >= HEARTBEAT_PERIOD)
   //prv_heartbeat_timer();
   }
 
-if (millis () - target_time1 >= 200)
+if (millis () - target_time1 >= 1000)
   {
-    target_time1 += 200 ;   // change scheduled time exactly, no slippage will happen
+    target_time1 += 1000 ;   // change scheduled time exactly, no slippage will happen
   d = d-0.01;
   bellow.set_drive(d);
   	 Serial.print("Drive: ");
     Serial.println(d);
+    Serial.print("Current:");
+    Serial.println(board.output_current());
   if (d <= -1.0)
   {
     d =1.0;
