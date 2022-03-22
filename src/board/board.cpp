@@ -41,7 +41,7 @@ void Board::update(){
   _out_current = current_sensor.getCurrent_mA()/1000;
   _out_power = current_sensor.getPower_mW()/1000;
 
-  _input_voltage = _adc_to_V(analogRead(PIN_SENSE_VIN));
+  //_input_voltage = _adc_to_V(analogRead(PIN_SENSE_VIN));
 
 
 }
