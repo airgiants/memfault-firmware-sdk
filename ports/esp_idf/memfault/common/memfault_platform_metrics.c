@@ -36,6 +36,7 @@ static void prv_metric_timer_handler(void *arg) {
 
 bool memfault_platform_metrics_timer_boot(uint32_t period_sec,
                                           MemfaultPlatformTimerCallback callback) {
+  return true;
   const esp_timer_create_args_t periodic_timer_args = {
     .callback = &prv_metric_timer_handler,
     .arg = callback,
